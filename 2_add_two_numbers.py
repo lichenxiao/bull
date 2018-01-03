@@ -50,30 +50,43 @@ class Solution(object):
                 carry = 0
                 sum = temp
             sum_obj.val = sum
-            l1 = l1.next
-            l2 = l2.next
+            if l1:
+                l1 = l1.next
+            if l2:
+                l2 = l2.next
             if l1 or l2 or carry:
                 sum_obj.next = ListNode(0)
                 sum_obj = sum_obj.next
             else:
                 sum_obj.next = None
-        return sum_head
+        res_list = []
+        item = sum_head
+        while item:
+            res_list.append(item.val)
+            item = item.next
+        return res_list
+        #return sum_head
 
 
 if __name__ == '__main__':
-    node11 = ListNode(2)
-    node12 = ListNode(4)
-    node13 = ListNode(3)
-    node11.next = node12
-    node12.next = node13
-    node13.next = None
+    # node11 = ListNode(2)
+    # node12 = ListNode(4)
+    # node13 = ListNode(3)
+    # node11.next = node12
+    # node12.next = node13
+    # node13.next = None
+    #
+    # node21 = ListNode(2)
+    # node22 = ListNode(4)
+    # node23 = ListNode(3)
+    # node21.next = node22
+    # node22.next = node23
+    # node23.next = None
 
-    node21 = ListNode(2)
-    node22 = ListNode(4)
-    node23 = ListNode(3)
-    node21.next = node22
-    node22.next = node23
-    node23.next = None
+    node11 = ListNode(5)
+    node11.next = None
+    node21 = ListNode(5)
+    node21.next = None
 
     c = Solution()
     res = c.addTwoNumbers(node11, node21)
